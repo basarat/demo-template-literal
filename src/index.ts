@@ -1,14 +1,17 @@
-console.log(null == null); // true
-console.log(undefined == null); // true
+type Size = 'small' | 'medium' | 'large';
+type Color = 'primary' | 'secondary';
+type Style = `${Size}-${Color}`;
 
-let example: string | null | undefined;
-const setExampleString = () => example = 'hello';
-const setExampleNull = () => example = null;
-const setExampleUndefined = () => example = undefined;
+/**
+ * @param style is a combination of 
+ *  Size: 'small' or 'medium' or 'large'
+ *  Color: 'primary' or 'secondary'
+ * e.g. 'small-secondary'
+ */
+function applyStyle(style: Style) {
+  // ...
+}
 
-setExampleString(); console.log(example?.toUpperCase()); // HELLO
-setExampleUndefined(); console.log(example?.toUpperCase()); // undefined
-setExampleNull(); console.log(example?.toUpperCase()); // undefined
-
-console.log(example?.toUpperCase());
-console.log(example == null ? undefined : example.toUpperCase());
+applyStyle('small-primary');
+applyStyle('large-secondary');
+applyStyle('medim-primary'); // Error
